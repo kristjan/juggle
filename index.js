@@ -4,7 +4,11 @@ var juggle = null;
 window.onload = function() {
   juggle = new Juggle('juggle_canvas');
   for (var i=1; i <= 256; i*=2) {
-    rectangles.push(juggle.rectangle(i, i, i, i));
+    if (i < 128) {
+      rectangles.push(juggle.rectangle(i, i, i, i));
+    } else {
+      rectangles.push(juggle.square(i, i, i, i));
+    }
   }
   setInterval(wiggle, 1000/24);
 };
