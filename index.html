@@ -2,14 +2,24 @@
 <html>
   <head>
     <title>Juggle</title>
+    <script rel="javascript" type="text/javascript"
+            src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script rel="javascript" type="text/javascript" src="juggle.js"></script>
     <script rel="javascript" type="text/javascript" src="index.js"></script>
-    <link rel="stylesheet" type="text/css" href="juggle.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
   </head>
   <body>
     <canvas id="juggle_canvas" height="600px" width="600px">
       Really? Your browser doesn't support &lt;canvas&gt;?
       <a href="http://google.com/chrome">Get with the times</a>.
     </canvas>
+    <div id="controls">
+      <button id="reset">Reset</button>
+      <fieldset id="wiggle">
+        <legend>Wiggle</legend>
+        <button class="start">Start</button>
+        <button class="stop">Stop</button>
+      </fieldset>
+    </div>
   </body>
 </html>

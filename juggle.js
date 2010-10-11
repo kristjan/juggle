@@ -25,6 +25,11 @@ function Juggle(canvas_id) {
     shapes.push(shape);
   };
 
+  this.removeAllShapes = function() {
+    shapes = [];
+    this.redraw();
+  };
+
   this.clear = function() {
     canvas.width = canvas.width;
   };
@@ -51,8 +56,6 @@ function Juggle(canvas_id) {
     batching = false;
     this.redraw();
   };
-
-  return true;
 }
 
 function Rectangle(juggle, x, y, w, h) {
@@ -89,8 +92,6 @@ function Rectangle(juggle, x, y, w, h) {
     this._juggle.redraw();
     return this._h;
   };
-
-  return true
 }
 
 function Square(juggle, x, y, s) {

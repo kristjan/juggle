@@ -1,4 +1,26 @@
 canvas {
   border: 1px solid #CCC;
-  margin: auto;
+  float: left;
+  margin: 10px;
+}
+
+fieldset {
+  border: 1px solid #CCC;
+  margin: 10px 0px;
+}
+
+legend {
+  border: 1px solid #CCC;
+  border-width: 0px 1px;
+  color: #666;
+  padding: 0px 5px;
+}
+
+#controls {
+  background-color: #EEF;
+  float: left;
+  height: 600px;
+  margin-left: 20px;
+  padding: 10px;
+  width: 600px;
 }

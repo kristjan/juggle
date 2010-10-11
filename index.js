@@ -1,8 +1,20 @@
 var rectangles = [];
 var juggle = null;
 
-window.onload = function() {
+var intervals = {}
+
+$(document).ready(function() {
   juggle = new Juggle('juggle_canvas');
+  init();
+  $('button').click(goButtonGo);
+  $('button#reset').click(init);
+});
+
+function init() {
+  $('fieldset').each(function() {
+    stopBehavior($(this).attr('id'));
+  });
+  juggle.removeAllShapes();
   for (var i=1; i <= 256; i*=2) {
     if (i < 128) {
       rectangles.push(juggle.rectangle(i, i, i, i));
@@ -10,8 +22,27 @@ window.onload = function() {
       rectangles.push(juggle.square(i, i, i, i));
     }
   }
-  setInterval(wiggle, 1000/24);
-};
+}
+
+function goButtonGo() {
+  var button = $(this);
+  var behavior = button.parent('fieldset').attr('id')
+  if (button.hasClass('start')) {
+    startBehavior(behavior);
+  } else if (button.hasClass('stop')) {
+    stopBehavior(behavior);
+  }
+}
+
+function startBehavior(name) {
+  var fn = eval(name);
+  intervals[name] = setInterval(fn, 50);
+}
+
+function stopBehavior(name) {
+  clearInterval(intervals[name]);
+  intervals[name] = null;
+}
 
 function wiggle() {
   var len = rectangles.length;
